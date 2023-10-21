@@ -1,9 +1,13 @@
 const { Router } = require("express");
 const { getUser } = require('../Controllers/getUser');
 const { getProducts } = require('../Controllers/getProducts');
+const  postProducts  = require('../Controllers/postProducts'); 
+const { postUser } = require('../Controllers/postUser');
 const router = Router();
 
-router.get('/users/:id', getUser);
+router.get('/users', getUser);
 router.get('/products', getProducts);
-
-module.exports = router; // Export the 'router' object without calling it as a function
+router.post('/products', postProducts); 
+router.post('/users', postUser);
+    
+module.exports = router;

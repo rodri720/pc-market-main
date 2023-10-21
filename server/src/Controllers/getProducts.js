@@ -1,6 +1,7 @@
-const { Products } = require('../Models/Products');
+const { Products } = require('../db.js');
 
 async function getProducts(req, res) {
+    
     try {
         const products = await Products.findAll();
         return res.json(products);
