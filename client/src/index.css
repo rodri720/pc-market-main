@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* index.css */
+
+
+
+
+/* Puedes agregar estilos personalizados aquí si es necesario */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Otros estilos personalizados */
+}
