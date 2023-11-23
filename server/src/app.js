@@ -4,11 +4,11 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const adminRoutes = require("./routes/admin.js");
-const { auth, requiresAuth } = require('express-openid-connect');
+
 require("./db.js");
 
 const server = express();
-server.use("/admin", requiresAuth(), adminRoutes);
+server.use("/admin",  adminRoutes);
 server.name = "server";
 
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -27,7 +27,7 @@ server.use((req, res, next) => {
 });
 
 server.use("/", routes);
-server.use("/admin", requiresAuth(), adminRoutes);
+server.use("/admin", adminRoutes);
 // Error catching endware.
 server.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars
