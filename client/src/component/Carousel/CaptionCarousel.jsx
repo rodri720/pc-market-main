@@ -1,4 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import image1 from '../images/ThinkPad-x1-Nano.png';
+import image2 from '../images/Lenovo-yoga-9i.png';
+import image3 from '../images/LenovoE41-25A4.png';
+import image4 from '../images/Ideapad114i.png';
+
 import {
   Box,
   IconButton,
@@ -9,8 +17,6 @@ import {
   Container,
 } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
-import Slider from 'react-slick';
-import { useState } from 'react';
 
 const settings = {
   dots: true,
@@ -24,50 +30,37 @@ const settings = {
   slidesToScroll: 1,
 };
 
+const cards = [
+  {
+    title: 'NOTEBOOK LENOVO',
+    text: 'Pantalla 2K de 13″ con imágenes ricas en color, con o sin función táctil',
+    image: image1, // Usa la importación en lugar de require
+  },
+  {
+    title: 'NOTEBOOK LENOVO',
+    text: 'La flexibilidad multimodo de 360 grados se une al entretenimiento móvil de primera calidad',
+    image: image2,
+  },
+  {
+    title: 'NOTEBOOK LENOVO',
+    text: 'NOTEBOOK LENOVO 14 E41-25-A4-4350B-4GB-500GB',
+    image: image3,
+  },
+  {
+    title: 'Notebook Lenovo ',
+    text: 'Notebook Lenovo Ideapad 1i Intel Celeron N4120 4gb 128gb',
+    image: image4,
+  },
+];
+
 export default function CaptionCarousel() {
   const [slider, setSlider] = useState();
 
   const top = useBreakpointValue({ base: '90%', md: '50%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
 
-  const cards = [
-    {
-      title: 'NOTEBOOK LENOVO',
-      text: 'Pantalla 2K de 13″ con imágenes ricas en color, con o sin función táctil',
-      image: require('../images/ThinkPad-x1-Nano.png'),
-      
-      
-    },
-    {
-      title: 'NOTEBOOK LENOVO',
-      text: 'La flexibilidad multimodo de 360 grados se une al entretenimiento móvil de primera calidad',
-      image: require('../images/Lenovo-yoga-9i.png'),
-    },
-    {
-      title: 'NOTEBOOK LENOVO',
-      text: 'NOTEBOOK LENOVO 14 E41-25-A4-4350B-4GB-500GB',
-      image: require('../images/LenovoE41-25A4.png'),
-    },
-    {
-      title: 'Notebook Lenovo ',
-      text: 'Notebook Lenovo Ideapad 1i Intel Celeron N4120 4gb 128gb',
-      image: require('../images/Ideapad114i.png'),
-    },
-  ];
-
   return (
     <Box position={'relative'} height={'400px'} width={'full'} overflow={'hidden'}>
-      {/* CSS files for react-slick */}
-      <link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-/>
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
@@ -116,10 +109,10 @@ export default function CaptionCarousel() {
                 transform="translate(0, -50%)"
               >
                 <img
-              src={card.image}
-              alt={`Card ${index + 1}`} // or provide a meaningful description
-              style={{ maxWidth: '100%', height: 'auto' }}
-               />
+                  src={card.image}
+                  alt={`Card ${index + 1}`} // or provide a meaningful description
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
 
                 <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
                   {card.title}

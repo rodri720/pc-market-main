@@ -1,16 +1,14 @@
-import React from 'react'
-import NavBar from '../NavBar/NavBar'
-import Carousel from '../Carousel/CaptionCarousel'
-import Footer from '../Footer/Footer'
+import React from 'react';
+import Navbar from '../Navbar/Navbar';
+import CaptionCarousel from '../Carousel/CaptionCarousel'; // Asumiendo que el componente se llama CaptionCarousel
+import Footer from '../Footer/Footer';
 
 export default function LandingPage() {
   return (
     <div>
-        <NavBar />
-        <Carousel />
-        <Footer />
-        
-      <h1></h1>
+      <Navbar />
+      <CaptionCarousel />
+      <Footer />
     </div>
-  )
+  );
 }

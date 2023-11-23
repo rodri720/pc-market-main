@@ -1,14 +1,18 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from './component/LandingPage/LandingPage';
+import Navbar from './component/Navbar/Navbar';
 import Home from './component/Home/Home';
 import Detail from './component/Detail/Detail';
 import Footer from './component/Footer/Footer';
 import About from './component/About/About';
+import './App.css';
+
+
 
 export default function App() {
   return (
-   
+    <Router>
       <div className="App">
       
         <Routes>
@@ -19,7 +23,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
          
         </Routes>
+        
       </div>
+      </Router>
     
   );
 }
