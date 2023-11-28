@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import logo from '../images/logo.png';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';  // Asegúrate de tener esta importación
-
+import Profile from '../Login/Profile';
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -29,11 +29,13 @@ export default function Navbar() {
 
   return (
     <div className="navbar" style={{ backgroundColor: colorMode === 'light' ? '#FFFFFF' : '#1A202C' }}>
-    
+     
+      
       <div className="logo">
         <img src={logo} alt="logo" width={'150px'} height={'150px'} />
       </div>
-      <h1 className="title">Bienvenidos a PC_MARKET</h1>
+     
+      <h1 className="title"> Lenovo</h1>
       <div className="rightSection">
         <Box>
           <Button onClick={handleToggleColorMode} rounded={'full'} variant={'link'} cursor={'pointer'} minW={0}>
