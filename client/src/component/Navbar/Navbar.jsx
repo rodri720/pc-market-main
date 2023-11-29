@@ -6,6 +6,8 @@ import logo from '../images/logo.png';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';  // Asegúrate de tener esta importación
 import Profile from '../Login/Profile';
+
+
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -20,7 +22,9 @@ export default function Navbar() {
       toggleColorMode('light');
     }
   };
-
+  const handleLogout = () => {
+    logout({ returnTo: window.location.origin });
+  };
   const handleSearch = () => {
     if (searchText) {
       navigate(`/home?search=${searchText}`);
@@ -71,6 +75,7 @@ export default function Navbar() {
               <MenuDivider />
               <MenuItem>pc-market@gmail.com</MenuItem>
               <MenuItem></MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
             </MenuList>
           </Menu>
         ) : (
@@ -81,11 +86,9 @@ export default function Navbar() {
             _hover={{ bg: 'blue.600' }}
             onClick={loginWithRedirect}
           >
-            Iniciar sesión
+            Login
           </Button>
         )}
-        {/* Asegúrate de tener el componente HeartIcon disponible y importado */}
-        
         <input
           type="text"
           placeholder="Buscar..."

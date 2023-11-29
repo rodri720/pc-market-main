@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Landing from './component/LandingPage/LandingPage';
-import Navbar from './component/Navbar/Navbar';
+
 import Home from './component/Home/Home';
 import Detail from './component/Detail/Detail';
 import Footer from './component/Footer/Footer';
@@ -22,7 +22,7 @@ export default function App() {
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/about" element={<About />} />
-          <Route path="/loggedout" element={<LogoutButton />} />
+          <Route path="/LogoutButton" element={<LogoutButton />} />
         </Routes>
         
       </div>
